@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jquery代码风格</title>
+</head>
+
+<body>
+    <p>双11狂欢节</p>
+    <button id="btn">来吧</button>
+    <script src="../lib/jquery-3.3.1.js"></script>
+    <script>
+        /**
+         * 代码风格
+         * 
+         */
+        // 执行一个匿名函数
+        // $(function(){
+        // });
+        /* window.onload = function () {
+            $('#btn').on('click', function () {
+                $('p').html('我只想学习');
+            });
+
+        } */
+        $(function () {
+            $('#btn').on('click', function () {
+                $('p').html('我只想学习');
+            });
+        });
+    </script>
+</body>
+
+</html>

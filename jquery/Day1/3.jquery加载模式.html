@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jquery加载模式</title>
+</head>
+
+<body>
+    <p>双11狂欢节</p>
+    <button id="btn">来吧</button>
+    <script src="../lib/jquery-3.3.1.js"></script>
+    <script>
+        /**
+         * 加载模式
+         * 
+            window.onload : 
+
+                执行时机； 所有的dom节点加载完毕之后，包括资源： 如图片等等
+                执行次数： 1次，后面的会覆盖前面的，因为是字面量的赋值
+                简写方法： 无
+
+            jquery:$(document).ready(function () {})
+
+                执行时机： 所有的dom节点加载完毕之后，注意不包括资源：如图片！！！！
+                          开发实际应用：做图片轮播的时候，没有必要等所有的图片加载完毕菜开始滚动。
+                执行次数： 可以执行多次 ，并且不会覆盖
+                          原理： 把内部接收的函数保存到一个数组里面，等到
+                                后期统一执行，调用多少次，就有多少次执行
+               简写方案：  $(function(){})
+
+            注意： js先会执行初始化代码，再执行回调代码
+                  所以当有$(function(){}) 和 window.onload 并存的情况下，
+                  会先执行window.onload 
+                  再执行 $(function(){});
+         */
+
+
+        $(document).ready(function () {
+            console.log('aaaa');
+        });
+
+        $(document).ready(function () {
+            console.log('bbbbb');
+        });
+        $(function(){
+            console.log('cccccc');
+        });
+
+
+
+        window.onload = function () {
+            console.log('xxxx');
+        }
+        /* window.onload = function () {
+            console.log('sss');
+        } */
+    </script>
+</body>
+
+</html>
